@@ -1,0 +1,28 @@
+sequenceDiagram
+    participant M as Main
+    participant G as Game
+    participant P as Player
+    participant D as Deck
+    participant DB as Database
+
+    M->>G: Create game instance
+    G->>P: Create player instance
+    G->>D: Create deck instance
+    G->>DB: Create database instance
+    G->>P: Deal initial cards
+    G->>M: Render game screen
+    M->>G: User places bet
+    G->>P: Player places bet
+    G->>D: Shuffle deck
+    G->>P: Deal initial cards
+    G->>M: Render game screen
+    M->>G: User makes decision (hit, stand, double down, split)
+    G->>P: Player makes decision
+    G->>D: Deal card if hit or double down
+    G->>P: Update hand value
+    G->>M: Render game screen
+    M->>G: User ends game
+    G->>P: Calculate result
+    G->>DB: Update balance
+    G->>DB: Update win/loss count
+    G->>M: Render end game screen

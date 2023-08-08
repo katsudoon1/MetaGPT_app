@@ -1,0 +1,30 @@
+classDiagram
+    class User{
+        +username: str
+        +email: str
+        +password: str
+        +avatar: str
+        +create_account(): None
+        +login(): None
+        +logout(): None
+        +customize_avatar(): None
+        +update_profile(): None
+    }
+    class Game{
+        +players: List[User]
+        +start_game(): None
+        +end_game(): None
+    }
+    class Chat{
+        +messages: List[str]
+        +send_message(): None
+        +get_messages(): List[str]
+    }
+    class Statistics{
+        +game_history: List[Game]
+        +get_game_history(): List[Game]
+        +get_player_stats(): Dict[str, int]
+    }
+    User "1" -- "1" Game: plays
+    User "1" -- "1" Chat: chats
+    User "1" -- "1" Statistics: views

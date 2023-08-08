@@ -1,0 +1,11 @@
+sequenceDiagram
+    participant User as U
+    participant Game as G
+    participant Chat as C
+    participant Statistics as S
+    U->>G: start_game()
+    G->>C: send_message()
+    C->>C: get_messages()
+    U->>S: get_game_history()
+    S->>S: get_player_stats()
+    G->>G: end_game()
